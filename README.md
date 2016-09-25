@@ -10,6 +10,8 @@ I tried to be as pragmatic as possible but also seperating module concerns/respo
 - `cache.js` can be converted into a function taking an abstraction of `scema.js` for future dependency injection
 - `test.js` can be separated into other files if development needs to continue
 
+# Giphinator code challenge
+
 #### Requirements:
 - Nodejs (at least v5)
 - npm

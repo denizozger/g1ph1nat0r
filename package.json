@@ -1,7 +1,7 @@
 {
   "name": "giphinator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A mini REST API that fetches GIFs from Giphy and caches them",
   "main": "index.js",
   "scripts": {
     "migrations": "db-migrate up",
@@ -29,5 +29,8 @@
     "request-promise": "^4.1.1",
     "should": "^11.1.0",
     "supertest": "^2.0.0"
+  },
+  "engines": { 
+    "node" : ">=6.5.0" 
   }
 }
