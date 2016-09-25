@@ -8,8 +8,7 @@
     "lint": "./node_modules/.bin/jscs . && ./node_modules/.bin/jshint .",
     "test": "./node_modules/.bin/mocha",
     "start": "node index.js",
-    "watch": "./node_modules/.bin/nodemon",
-    "postwatch": "npm run lint"
+    "watch": "./node_modules/.bin/nodemon  --exec 'npm run lint && npm start'"
   },
   "author": "",
   "license": "ISC",

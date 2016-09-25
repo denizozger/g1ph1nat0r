@@ -17,7 +17,8 @@
 		"describe": true,
 		"it": true,
 		"beforeEach": true,
-		"afterEach": true
+		"afterEach": true,
+		"libRequire": true
 	},
 	"esnext": true,
 	"asi": true
