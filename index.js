@@ -1,8 +1,10 @@
 'use strict'
 
+global.libRequire = file => require(__dirname + '/lib/' + file);
+
 const 
 	express 					= require('express'),
-  giphinateHandler 	= require('./lib/handlers/giphinate'),
+  giphinateHandler 	= libRequire('handlers/giphinate'),
   app 							= express(),
   port 							= process.env.PORT || 3000;
 
