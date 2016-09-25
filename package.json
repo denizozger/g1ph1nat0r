@@ -4,17 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "migrations": "db-migrate up",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/.bin/jscs . && ./node_modules/.bin/jshint .",
+    "test": "./node_modules/.bin/mocha",
+    "start": "node index.js",
+    "watch": "./node_modules/.bin/nodemon",
+    "postwatch": "npm run lint"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
     "db-migrate": "^0.9.25",
     "express": "^4.13.4",
     "pg": "^5.1.0",
     "sequelize": "^3.23.3"
+  },
+  "devDependencies": {
+    "jscs": "^3.0.7",
+    "jshint": "^2.9.3",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "supertest": "^2.0.0"
   }
 }

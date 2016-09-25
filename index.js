@@ -1,14 +1,15 @@
 'use strict'
 
-const express = require('express'),
-    bodyParser = require('body-parser'),
-    giphinateHandler = require('./lib/handlers/giphinate'),
-    app = express()
+const 
+	express 					= require('express'),
+  giphinateHandler 	= require('./lib/handlers/giphinate'),
+  app 							= express(),
+  port 							= process.env.PORT || 3000;
 
-app
-.use(bodyParser)
-.get('/:queryText', giphinateHandler)
+app.get('/:queryText', giphinateHandler);
 
-.listen(process.env.PORT, function () {
-    console.log(`Listening on port ${process.env.PORT}`)
-})
+app.listen(port, () => {
+  console.log(`Giphinator listening on port ${port}`);
+});
+
+module.exports = app;
