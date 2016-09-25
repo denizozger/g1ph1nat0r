@@ -1,4 +1,14 @@
-# Giphinator
+# Giphinator solution
+
+This is my solution to the challenge below, originally cloned from [here](https://github.com/AnythingAnonymoose/giphinator). 
+
+## Future improvements
+
+I tried to be as pragmatic as possible but also seperating module concerns/responsibilities properly. 
+
+- Database dependency in tests should be mocked
+- `cache.js` can be converted into a function taking an abstraction of `scema.js` for future dependency injection
+- `test.js` can be separated into other files if development needs to continue
 
 #### Requirements:
 - Nodejs (at least v5)
