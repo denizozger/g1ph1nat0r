@@ -9,12 +9,19 @@ const
 /**
  * Router tests
  */
-describe('GET /', function() {
-  it('should return a gif', function(done) {
+describe('GET /:queryText', function() {
+
+  it('should return a gif when searched for "cat"', function(done) {
     request(app)
       .get('/cat')
-      .expect(200, done);
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .expect(function(res) {
+      	should.exist(res.body.url);
+      })
+      .end(done);
   });
+
 });
 
 /**
@@ -41,15 +48,14 @@ describe('Integration tests', function() {
 	  // this is to test if the promise rejects the query properly
 	  it('should NOT return a gif', function() {
 	  	let randomCharacters = crypto.randomBytes(20).toString('hex');
-	  	let foundError = `Found results for ${randomCharacters} (⊙_◎)`;
 
 	    return giphy.search(randomCharacters)
 	    	.then(function(url) {
-	    		throw foundError;
+	    		if (url) {
+	    			throw new Error(`Found results for ${randomCharacters} (⊙_◎)`);
+	    		}
 	    	})
-	    	.catch(function(err) {
-	    		should(err).not.be.equal(foundError);
-	    	});
+	    	.catch(console.error);
 	  });
 
   });

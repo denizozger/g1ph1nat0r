@@ -4,14 +4,14 @@ global.libRequire = file => require(__dirname + '/lib/' + file);
 
 const 
 	express 					= require('express'),
-  giphinateHandler 	= libRequire('handlers/giphinate'),
-  app 							= express(),
+  app 							= express(),  
+  routes 						= libRequire('routes'),
   port 							= process.env.PORT || 3000;
 
-app.get('/:queryText', giphinateHandler);
+module.exports = app;
+
+app.use('/', routes);
 
 app.listen(port, () => {
   console.log(`Giphinator listening on port ${port}`);
 });
-
-module.exports = app;
